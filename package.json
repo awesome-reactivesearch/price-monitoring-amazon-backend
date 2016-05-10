@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/puneet24/flipkart_extension",
   "dependencies": {
+    "apac": "^2.0.0",
     "appbase-js": "^0.10.7",
     "express": "^4.13.3",
     "fs": "0.0.2",
