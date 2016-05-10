@@ -20,11 +20,11 @@ module.exports.getProductDetails = function(productId, callback) {
     'IdType': 'ASIN',
     'ItemId': productId,
     'ResponseGroup': 'Medium'
-  }).then((response) => {
+  }).then(function(response) {
     var data = response.result.ItemLookupResponse.Items.Item;
     if (data != undefined)
       callback(data);
-  }).catch((err) => {
+  }).catch(function(err) {
     console.error("Something went wrong! ", err);
   });
 }
