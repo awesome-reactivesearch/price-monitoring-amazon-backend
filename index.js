@@ -69,16 +69,16 @@ app.get('/alert', function(req, res) {
   }
 
   var webhookObject = {
-    'method': 'POST',
-    'url': 'https://api.sendgrid.com/api/mail.send.json',
-    'headers': {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Bearer ' + sendgrid_api_key
-    },
-    "count": 1,
-    'string_body': 'to=' + req.param('email') + '&amp;subject=Your Flipkart product price Alert&amp;text=' + mailBody + '&amp;from=yash@appbase.io'
-  }
-  /* Starting stream search for the user condition */
+      'method': 'POST',
+      'url': 'https://api.sendgrid.com/api/mail.send.json',
+      'headers': {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + sendgrid_api_key
+      },
+      "count": 1,
+      'string_body': 'to=' + req.param('email') + '&amp;subject=Your Flipkart product price Alert&amp;text=' + mailBody + '&amp;from=yash@appbase.io'
+    }
+    /* Starting stream search for the user condition */
   appbase.searchStreamToURL(requestObject, webhookObject).on('data', function(response) {
     console.log("Webhook has been configured : ", response);
   }).on('error', function(error) {
