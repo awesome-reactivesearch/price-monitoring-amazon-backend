@@ -29,7 +29,7 @@ app.get('/product', function(req, res) {
   helper.getProductDetails(req.param('productId'), function(data) {
     var details = {
       'productId': req.param('productId'),
-      'price': data.OfferSummary.LowestNewPrice.Amount,
+      'price': data.OfferSummary.LowestNewPrice.FormattedPrice,
       'name': data.ItemAttributes.Title,
       'imageURL': data.MediumImage.URL
     }
