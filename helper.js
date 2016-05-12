@@ -34,14 +34,14 @@ module.exports.getProductDetails = function(productId, callback) {
 */
 module.exports.indexProduct = function(productId) {
   this.getProductDetails(productId, function(data) {
-    var price = data.productBaseInfo.productAttributes.sellingPrice.amount;
-    var name = data.productBaseInfo.productAttributes.productBrand
+    var price = data.OfferSummary.LowestNewPrice.FormattedPrice;
+    var name =  data.ItemAttributes.Title
     var appbaseRef = new Appbase(appbaseCredentials);
     appbaseRef.index({
       type: appbaseCredentials.type,
       id: productId,
       body: {
-        'price': price,
+        'price': parseInt(price.slice(1)),
         'productId': productId,
         'name': name
       }
