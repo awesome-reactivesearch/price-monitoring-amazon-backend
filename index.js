@@ -58,8 +58,8 @@ app.get('/alert', function(req, res) {
           "filter": {
             "range": {
               "price": {
-                "lt": req.param('lte'),
-                "gte": req.param('gte')
+                "lt": req.param('lte').slice(1),
+                "gte": req.param('gte').slice(1)
               }
             }
           }
